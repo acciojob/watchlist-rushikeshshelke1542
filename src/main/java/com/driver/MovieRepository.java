@@ -4,15 +4,22 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 
 @Repository
 public class MovieRepository {
 
-    HashMap<String,Movie> movieDB = new HashMap<>();
-    HashMap<String,Director> directorDB = new HashMap<>();
+    HashMap<String,Movie> movieDB;
+    HashMap<String,Director> directorDB;
 
-    HashMap<String, ArrayList<Movie>> directorMovieDB = new HashMap<>();
+    HashMap<String, ArrayList<Movie>> directorMovieDB;
+
+    // Last Update - allocating memory in the constructor for the lists :
+    public MovieRepository() {
+        this.movieDB = new HashMap<>();
+        this.directorDB = new HashMap<>();
+        this.directorMovieDB = new HashMap<>();
+    }
 
     public String addMovie(Movie movie) {
         movieDB.put(movie.getName(),movie);
