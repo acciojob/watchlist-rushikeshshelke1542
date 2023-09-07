@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 @Repository
@@ -52,8 +53,8 @@ public class MovieRepository {
     }
 
 
-    public ArrayList<String> getMoviesByDirectorName(String director) {
-        ArrayList<String> movieList = new ArrayList<>();
+    public List<String> getMoviesByDirectorName(String director) {
+        List<String> movieList = new ArrayList<>();
 
         for(Movie movie :directorMovieDB.get(director)){
             movieList.add(movie.getName());
@@ -61,7 +62,7 @@ public class MovieRepository {
         return movieList;
     }
 
-    public ArrayList<String> findAllMovies(){
+    public List<String> findAllMovies(){
         // Efficient way of returning the keySet() of the movie_database :
         return new ArrayList<>(movieDB.keySet());
     }
