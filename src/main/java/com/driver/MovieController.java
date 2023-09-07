@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 @RestController
 public class MovieController {
-    MovieService movieService = new MovieService();
+    @Autowired
+    MovieService movieService;
 
     @PostMapping("/movies/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie) {
